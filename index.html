@@ -308,12 +308,12 @@
 
     <details>
       <summary>How is ABV calculated from OG and FG?</summary>
-      <p>The common homebrew formula is <strong>ABV ≈ (OG − FG) × 131.25</strong>. So an original gravity of 1.055 finishing at 1.010 gives roughly 5.9% ABV. It's an estimate that's accurate enough for almost all homebrew beer, cider, mead and seltzer.</p>
+      <p>The common homebrew formula is <strong>ABV ≈ (OG − FG) × 131.25</strong>. So an original gravity of 1.055 finishing at 1.010 gives roughly 5.9% ABV. It's an estimate that's accurate enough for almost all homebrew beer, cider, mead and seltzer. There's a dedicated <a href="/abv-calculator.html">ABV calculator</a> with style tables and reading tips.</p>
     </details>
 
     <details>
       <summary>How much priming sugar do I need for bottling?</summary>
-      <p>It depends on your batch volume, the target CO₂ level (around 2.4 volumes for most ales), and the beer's temperature, which determines how much CO₂ is already dissolved. The calculator above uses corn (dextrose) sugar at 91% fermentability. Add the sugar to the whole batch, not per bottle, for even carbonation.</p>
+      <p>It depends on your batch volume, the target CO₂ level (around 2.4 volumes for most ales), and the warmest temperature the beer reached after fermentation, which determines how much CO₂ is already dissolved. Add the sugar to the whole batch, not per bottle, for even carbonation. The dedicated <a href="/priming-sugar-calculator.html">priming sugar calculator</a> has style presets, table-sugar amounts and per-bottle numbers.</p>
     </details>
 
     <details>
@@ -366,10 +366,12 @@ function calcIbu(alpha, weightG, batchL, og, boilMin){
 }
 function calcPrimingSugar(batchL, vols, tempC){
   if(!batchL||!vols) return null;
-  var dissolved = -0.9753*Math.log(tempC+273.15)+4.9648;
+  // Standard residual-CO2 curve (temp in °F) + 15.195 g corn sugar/gal/vol (= 4.014 g/L/vol)
+  var tF = tempC*9/5+32;
+  var dissolved = 3.0378 - 0.050062*tF + 0.00026555*tF*tF;
   var delta = vols-dissolved;
   if(delta<=0) return 0;
-  return (delta*batchL*2.0)/0.91;
+  return 4.014*batchL*delta;
 }
 function calcDryYeastPackets(batchL, og){
   if(!batchL||!og) return null;
