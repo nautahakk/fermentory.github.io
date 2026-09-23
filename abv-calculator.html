@@ -6,7 +6,7 @@
 <title>ABV Calculator — alcohol from OG and FG | Fermentory</title>
 <meta name="description" content="Free homebrew ABV calculator. Enter original and final gravity to get alcohol by volume and apparent attenuation, with typical OG/FG ranges by style and honest notes on accuracy.">
 <link rel="canonical" href="https://nautahakk.github.io/fermentory.github.io/abv-calculator.html">
-<meta name="theme-color" content="#1B4332">
+<meta name="theme-color" content="#5A4030">
 <link rel="icon" href="./icon-128.png">
 
 <meta property="og:type" content="article">
@@ -18,9 +18,9 @@
 
 <style>
   :root{
-    --green:#1B4332; --green2:#2D6A4F; --green3:#40916C;
-    --cream:#F8F4E9; --cream2:#FBF8F0; --ink:#21302a; --muted:#6b7b72;
-    --line:#e6e0cf; --line2:#ece7d6;
+    --green:#5A4030; --green2:#75471F; --green3:#75471F;
+    --cream:#F1E7D4; --cream2:#FFFBF2; --ink:#2A2018; --muted:#6C5A47;
+    --line:#D6C4A6; --line2:#E8D9BF;
     --maxw:760px;
   }
   *{box-sizing:border-box;}
@@ -50,7 +50,7 @@
   .hero h1{font-size:clamp(27px,4.6vw,38px); margin:0 0 12px;}
   .hero p.sub{font-size:clamp(16px,2.2vw,18px); color:var(--ink); margin:0;}
   .quick{
-    background:#eef4ef; border:1px solid #d8e6dc; border-left:4px solid var(--green2);
+    background:#F6EBDD; border:1px solid #D9C29F; border-left:4px solid var(--green2);
     border-radius:10px; padding:16px 18px; margin:24px 0;
   }
   .quick p{margin:0; font-size:15.5px;}
@@ -71,10 +71,10 @@
     border:1px solid var(--line); border-radius:9px; padding:10px 12px;
   }
   input:focus,select:focus{
-    outline:none; border-color:var(--green3); box-shadow:0 0 0 3px rgba(64,145,108,.18); background:#fff;
+    outline:none; border-color:var(--green3); box-shadow:0 0 0 3px rgba(181,121,58,.22); background:#fff;
   }
   .conv-out{
-    margin-top:16px; background:var(--cream2); border:1px dashed #cdd9cf; border-radius:10px;
+    margin-top:16px; background:var(--cream2); border:1px dashed #D4BA93; border-radius:10px;
     padding:14px 16px; font-variant-numeric:tabular-nums;
   }
   .conv-out .big{font-size:24px; font-weight:700; color:var(--green);}
@@ -97,20 +97,20 @@
   table.ctable{width:100%; border-collapse:collapse; font-size:15px; min-width:340px;}
   table.ctable th,table.ctable td{padding:10px 14px; text-align:left; border-bottom:1px solid var(--line); font-variant-numeric:tabular-nums;}
   table.ctable th{background:var(--cream2); color:var(--green); font-size:13px; text-transform:uppercase; letter-spacing:.04em;}
-  table.ctable tr.hl td{background:#eef4ef; font-weight:600;}
+  table.ctable tr.hl td{background:#F6EBDD; font-weight:600;}
   .band{
     margin:44px 0; background:var(--green); color:#fff; border-radius:16px;
     padding:34px 28px; text-align:center;
   }
   .band h2{color:#fff; font-size:23px; margin:0 0 10px;}
-  .band p{color:#dce8df; max-width:520px; margin:0 auto 22px; font-size:15.5px;}
+  .band p{color:#F1E7D4; max-width:520px; margin:0 auto 22px; font-size:15.5px;}
   .band .btn-store{
     display:inline-flex; align-items:center; gap:9px; background:#fff; color:var(--green);
     text-decoration:none; font-weight:700; font-size:16px; padding:13px 26px; border-radius:10px;
     transition:background .15s ease;
   }
   .band .btn-store:hover{background:var(--cream);}
-  .band .free-note{display:block; margin-top:12px; font-size:13px; color:#a9c6b4;}
+  .band .free-note{display:block; margin-top:12px; font-size:13px; color:#EAD9BF;}
   .faq{margin:44px 0;}
   .faq h2{font-size:23px; margin-bottom:18px;}
   details{background:#fff; border:1px solid var(--line); border-radius:10px; padding:4px 18px; margin-bottom:12px;}
